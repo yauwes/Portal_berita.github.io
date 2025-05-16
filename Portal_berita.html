@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Berita Modern</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for elements Tailwind can't handle easily */
+        .news-ticker {
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .news-ticker span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: ticker 20s linear infinite;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        .hero-article {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+        }
+        .newsletter-input {
+            transition: all 0.3s ease;
+        }
+        .newsletter-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center">
+                <img src="gambar berita/Logo beritahariini.png" alt="Logo Portal Berita" class="h-10">
+                <span class="ml-2 text-xl font-bold text-blue-800">BeritaHariIni</span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-800 hover:text-blue-600 font-medium">Beranda</a>
+                <a href="#" class="text-gray-800 hover:text-blue-600 font-medium">Nasional</a>
+                <a href="#" class="text-gray-800 hover:text-blue-600 font-medium">Teknologi</a>
+                <a href="#" class="text-gray-800 hover:text-blue-600 font-medium">Hiburan</a>
+                <a href="#" class="text-gray-800 hover:text-blue-600 font-medium">Kontak</a>
+            </nav>
+            
+            <div class="flex items-center">
+                <button class="p-2 rounded-full hover:bg-gray-100">
+                    <i class="fas fa-search text-gray-600"></i>
+                </button>
+                <button id="mobile-menu-button" class="md:hidden ml-2 p-2 rounded-full hover:bg-gray-100">
+                    <i class="fas fa-bars text-gray-600"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-2 flex flex-col">
+                <a href="#" class="py-2 text-gray-800 hover:text-blue-600">Beranda</a>
+                <a href="#" class="py-2 text-gray-800 hover:text-blue-600">Nasional</a>
+                <a href="#" class="py-2 text-gray-800 hover:text-blue-600">Teknologi</a>
+                <a href="#" class="py-2 text-gray-800 hover:text-blue-600">Hiburan</a>
+                <a href="#" class="py-2 text-gray-800 hover:text-blue-600">Kontak</a>
+            </div>
+        </div>
+        
+        <div class="bg-red-600 text-white py-2 px-4">
+            <div class="container mx-auto flex items-center">
+                <span class="font-bold mr-4 whitespace-nowrap">BREAKING NEWS:</span>
+                <div class="news-ticker overflow-hidden">
+                    <span>
+                        Presiden tandatangani UU baru tentang perlindungan data pribadi • Harga BBM turun mulai besok • Timnas Indonesia menang 3-0 di kualifikasi Piala Dunia • Aplikasi baru revolusioner akan diluncurkan minggu depan • Konser besar artis internasional di Jakarta bulan depan
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-6 flex flex-col lg:flex-row">
+        <div class="w-full lg:w-2/3 lg:pr-6">
+            <section class="mb-10">
+                <div class="relative rounded-xl overflow-hidden h-96">
+                    <img src="gambar berita/headline.png" alt="Headline News" class="w-full h-full object-cover">
+                    <div class="hero-article absolute inset-0 flex flex-col justify-end p-6 text-white">
+                        <span class="bg-blue-600 text-xs font-semibold px-2 py-1 rounded-full self-start mb-2">TERBARU</span>
+                        <h1 class="text-3xl md:text-4xl font-bold mb-2">Pemerintah Umumkan Paket Stimulus Ekonomi Baru untuk UMKM</h1>
+                        <p class="text-lg mb-4">Paket senilai Rp10 triliun akan mulai didistribusikan bulan depan dengan target 2 juta penerima manfaat.</p>
+                        <div class="flex items-center text-sm">
+                            <span class="mr-4"><i class="far fa-calendar-alt mr-1"></i> 15 Juni 2025</span>
+                            <span><i class="far fa-eye mr-1"></i> 12.4k Dilihat</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="mb-10">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800 border-l-4 border-blue-600 pl-3">Teknologi</h2>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Lihat Semua <i class="fas fa-chevron-right ml-1"></i></a>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                        <img src="gambar teknologi/Teknologi 1.png" alt="Tech News" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <span class="text-xs text-gray-500">2 jam yang lalu</span>
+                            <h3 class="text-lg font-semibold mt-1 mb-2 hover:text-blue-600">AI Terbaru Bisa Memprediksi Penyakit dengan Akurasi 95%</h3>
+                            <p class="text-gray-600 text-sm">Teknologi ini dikembangkan oleh startup lokal dan sudah diuji di 5 rumah sakit besar.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                        <img src="gambar teknologi/Teknologi 2.png" alt="Tech News" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <span class="text-xs text-gray-500">5 jam yang lalu</span>
+                            <h3 class="text-lg font-semibold mt-1 mb-2 hover:text-blue-600">Aplikasi Baru Ini Bisa Deteksi Hoax dalam 3 Detik</h3>
+                            <p class="text-gray-600 text-sm">Dikembangkan oleh tim peneliti dari Universitas Indonesia, sudah diunduh 1 juta kali.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                        <img src="gambar teknologi/Teknologi 3.png" alt="Tech News" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <span class="text-xs text-gray-500">Kemarin</span>
+                            <h3 class="text-lg font-semibold mt-1 mb-2 hover:text-blue-600">Smartphone dengan Layar Fleksibel Akan Dirilis Tahun Depan</h3>
+                            <p class="text-gray-600 text-sm">Produsen mengklaim perangkat ini bisa bertahan hingga 200.000 kali lipatan.</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            
+            <section class="mb-10">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800 border-l-4 border-blue-600 pl-3">Hiburan</h2>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Lihat Semua <i class="fas fa-chevron-right ml-1"></i></a>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                        <img src="gambar hiburan/Hiburan 1.png" alt="Entertainment News" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <span class="text-xs text-gray-500">3 jam yang lalu</span>
+                            <h3 class="text-lg font-semibold mt-1 mb-2 hover:text-blue-600">Film Terbaru Sutradara Joko Anwar Raih Penghargaan Internasional</h3>
+                            <p class="text-gray-600 text-sm">Film ini akan tayang di bioskop Indonesia mulai minggu depan.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                        <img src="gambar hiburan/Hiburan 2.png" alt="Entertainment News" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <span class="text-xs text-gray-500">6 jam yang lalu</span>
+                            <h3 class="text-lg font-semibold mt-1 mb-2 hover:text-blue-600">Konser Virtual Grup Band Legendaris Tembus 1 Juta Penonton</h3>
+                            <p class="text-gray-600 text-sm">Konser yang digelar selama 2 jam ini menampilkan 15 lagu terbaik mereka.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                        <img src="gambar hiburan/Hiburan 3.png" alt="Entertainment News" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <span class="text-xs text-gray-500">Kemarin</span>
+                            <h3 class="text-lg font-semibold mt-1 mb-2 hover:text-blue-600">Serial Terbaru Netflix tentang Sejarah Indonesia Trending Global</h3>
+                            <p class="text-gray-600 text-sm">Serial 6 episode ini menceritakan perjuangan kemerdekaan dari sudut pandang berbeda.</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            
+            <section class="mb-10">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800 border-l-4 border-blue-600 pl-3">Politik</h2>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Lihat Semua <i class="fas fa-chevron-right ml-1"></i></a>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                        <img src="gambar politik/Politik 1.png" alt="Politics News" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <span class="text-xs text-gray-500">4 jam yang lalu</span>
+                            <h3 class="text-lg font-semibold mt-1 mb-2 hover:text-blue-600">DPR Sahakan RUU tentang Reformasi Birokrasi</h3>
+                            <p class="text-gray-600 text-sm">RUU ini diharapkan bisa meningkatkan efisiensi pelayanan publik hingga 40%.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                        <img src="gambar politik/Politik 2.png" alt="Politics News" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <span class="text-xs text-gray-500">Kemarin</span>
+                            <h3 class="text-lg font-semibold mt-1 mb-2 hover:text-blue-600">Pemilu 2024: KPU Umumkan Jadwal Tahapan Pemilu</h3>
+                            <p class="text-gray-600 text-sm">Pendaftaran partai peserta pemilu akan dibuka mulai bulan depan.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                        <img src="gambar politik/Politik 3.png" alt="Politics News" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <span class="text-xs text-gray-500">2 hari lalu</span>
+                            <h3 class="text-lg font-semibold mt-1 mb-2 hover:text-blue-600">Presiden Lantik 5 Menteri Baru untuk Isi Kabinet yang Dirombak</h3>
+                            <p class="text-gray-600 text-sm">Perombakan kabinet dilakukan untuk meningkatkan kinerja pemerintahan.</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+        
+        <aside class="w-full lg:w-1/3 mt-8 lg:mt-0">
+            <section class="bg-white rounded-lg shadow-md p-6 mb-6">
+                <h2 class="text-xl font-bold text-gray-800 border-b pb-3 mb-4">Berita Populer</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start pb-3 border-b border-gray-100">
+                        <span class="text-blue-600 font-bold text-lg mr-3">1</span>
+                        <div>
+                            <h3 class="font-medium hover:text-blue-600">Harga Emas Dunia Anjlok 5% dalam Sehari</h3>
+                            <span class="text-xs text-gray-500">12 Juni 2025 • 25k dilihat</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start pb-3 border-b border-gray-100">
+                        <span class="text-blue-600 font-bold text-lg mr-3">2</span>
+                        <div>
+                            <h3 class="font-medium hover:text-blue-600">Viral Video Awan Berbentuk Pesawat di Langit Jakarta</h3>
+                            <span class="text-xs text-gray-500">11 Juni 2025 • 18k dilihat</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start pb-3 border-b border-gray-100">
+                        <span class="text-blue-600 font-bold text-lg mr-3">3</span>
+                        <div>
+                            <h3 class="font-medium hover:text-blue-600">Penemuan Spesies Baru Kadal di Hutan Kalimantan</h3>
+                            <span class="text-xs text-gray-500">10 Juni 2025 • 15k dilihat</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start pb-3 border-b border-gray-100">
+                        <span class="text-blue-600 font-bold text-lg mr-3">4</span>
+                        <div>
+                            <h3 class="font-medium hover:text-blue-600">Rilis Aplikasi Baru yang Bisa Deteksi Kesehatan Mental</h3>
+                            <span class="text-xs text-gray-500">9 Juni 2025 • 12k dilihat</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-blue-600 font-bold text-lg mr-3">5</span>
+                        <div>
+                            <h3 class="font-medium hover:text-blue-600">Prediksi Cuaca Ekstrem di Jawa Barat Minggu Ini</h3>
+                            <span class="text-xs text-gray-500">8 Juni 2025 • 10k dilihat</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            
+            <section class="bg-blue-50 rounded-lg shadow-md p-6 mb-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-3">Berlangganan Newsletter</h2>
+                <p class="text-gray-600 text-sm mb-4">Dapatkan berita terbaru langsung ke email Anda setiap hari.</p>
+                <form class="space-y-3">
+                    <input type="text" placeholder="Nama Anda" class="w-full px-4 py-2 rounded-lg newsletter-input border border-gray-300 focus:border-blue-500">
+                    <input type="email" placeholder="Alamat Email" class="w-full px-4 py-2 rounded-lg newsletter-input border border-gray-300 focus:border-blue-500">
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors">Berlangganan Sekarang</button>
+                </form>
+                <p class="text-xs text-gray-500 mt-3">Dengan berlangganan, Anda menyetujui Kebijakan Privasi kami.</p>
+            </section>
+            
+            <section class="bg-gray-100 rounded-lg p-4 mb-6 flex items-center justify-center">
+                <div class="text-center">
+                    <span class="text-xs text-gray-500 mb-1 block">IKLAN</span>
+                    <div class="w-full h-48 bg-gray-200 flex items-center justify-center">
+                        <p class="text-gray-500">Space Iklan 300x250</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">Tag Populer</h2>
+                <div class="flex flex-wrap gap-2">
+                    <a href="#" class="bg-gray-100 hover:bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">#Pemilu2024</a>
+                    <a href="#" class="bg-gray-100 hover:bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">#Ekonomi</a>
+                    <a href="#" class="bg-gray-100 hover:bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">#Teknologi</a>
+                    <a href="#" class="bg-gray-100 hover:bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">#Kesehatan</a>
+                    <a href="#" class="bg-gray-100 hover:bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">#Olahraga</a>
+                    <a href="#" class="bg-gray-100 hover:bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">#Hiburan</a>
+                    <a href="#" class="bg-gray-100 hover:bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">#Pendidikan</a>
+                    <a href="#" class="bg-gray-100 hover:bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">#Lingkungan</a>
+                </div>
+            </section>
+        </aside>
+    </main>
+
+    <footer class="bg-gray-800 text-white pt-10 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tentang Kami</h3>
+                    <p class="text-gray-400 text-sm mb-4">BeritaHariIni adalah portal berita online terpercaya yang menyajikan informasi aktual dan terverifikasi dari seluruh Indonesia.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tautan Cepat</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Beranda</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Tentang Kami</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Redaksi</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Pedoman Media Siber</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Karir</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Kategori</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Nasional</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Internasional</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Ekonomi</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Olahraga</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Teknologi</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Kontak Kami</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                            <span>Jl. Berita Utama No. 123, Jakarta Pusat, Indonesia</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3"></i>
+                            <span>(021) 1234-5678</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>redaksi@beritahariini.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 BeritaHariIni. All Rights Reserved.</p>
+                <div class="mt-2">
+                    <a href="#" class="hover:text-white">Kebijakan Privasi</a> | 
+                    <a href="#" class="hover:text-white">Syarat & Ketentuan</a> | 
+                    <a href="#" class="hover:text-white">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="hidden fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Newsletter Form Submission
+        const newsletterForm = document.querySelector('form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Terima kasih telah berlangganan newsletter kami!');
+                newsletterForm.reset();
+            });
+        }
+    </script>
+</body>
+</html>
